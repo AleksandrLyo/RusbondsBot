@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+
+  bot:
+    restart: always
+    build:
+        context: telegram_bot
+    env_file:
+        - telegram_bot/.env
+
+  selenium:
+    image: selenium/standalone-firefox:latest
+    shm_size: 2gb
+    container_name: rusbons_selenium
+    restart: always
+    expose:
+      - "4444"
+    ports:
+      - "4444:4444"
+    environment:
+      - SE_VNC_NO_PASSWORD=1
+      - SE_NODE_MAX_SESSIONS=3
+
+volumes:
+    postgres_data:
