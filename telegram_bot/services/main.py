@@ -10,11 +10,9 @@ from app.bot import bot
 from core.config import settings
 
 
-async def sending_result(title, text, url):
-    result = (f"<b>{title}</b>\n\n"
-              f"{text}\n\n"
-              f"<a href='{url}'>Подробнее</a>")
-    await bot.send_message(settings.chat_id, result, parse_mode="HTML", disable_web_page_preview=True)
+async def sending_result(title):
+    result = (f"<b>{title}</b>")
+    await bot.send_message(settings.chat_id, result, parse_mode="HTML")
 
 
 async def sending_results(new_placements, changing_ratings, coupons, events):
