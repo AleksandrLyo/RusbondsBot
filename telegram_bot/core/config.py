@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     """Настройки бота."""
 
     token: str = None
+    chat_id: int = None
 
     class Config:
 
